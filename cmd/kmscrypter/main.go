@@ -167,11 +167,13 @@ func getExitCode(err error) int {
 	}
 	exitErr, ok := err.(*exec.ExitError)
 	if !ok {
-		log.Fatal(err)
+		log.Print(err)
+		return 1
 	}
 	s, ok := exitErr.Sys().(syscall.WaitStatus)
 	if !ok {
-		log.Fatal(err)
+		log.Print(err)
+		return 2
 	}
 	return s.ExitStatus()
 }

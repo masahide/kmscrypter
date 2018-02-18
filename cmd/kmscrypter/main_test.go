@@ -360,3 +360,24 @@ func TestEncryptEnvs(t *testing.T) {
 		}
 	}
 }
+func TestExecCommand(t *testing.T) {
+	cases := []struct {
+		args     []string
+		expected int
+	}{
+		{
+			args:     []string{"::::::::::"},
+			expected: 1,
+		},
+		{
+			args:     []string{"/bin/bash", "-c", ":"},
+			expected: 0,
+		},
+	}
+	for i, c := range cases {
+		res := execCommand([]kvStruct{}, c.args)
+		if res != c.expected {
+			t.Errorf("%d, execCommand:err  got %q, expected:%q", i, res, c.expected)
+		}
+	}
+}
