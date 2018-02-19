@@ -179,12 +179,8 @@ func getExitCode(err error) int {
 }
 
 func getStsSession(conf profileConfig) *session.Session {
-	sess := session.Must(session.NewSession(&aws.Config{
-		Credentials: credentials.NewSharedCredentials(awsFilePath(env.AWSSharedCredentialsFile, credPath, env.Home), conf.SrcProfile),
-	}))
-	return session.Must(session.NewSession(&aws.Config{
-		Credentials: stscreds.NewCredentials(sess, conf.RoleARN),
-	}))
+	sess := session.Must(session.NewSession(&aws.Config{Credentials: credentials.NewSharedCredentials(awsFilePath(env.AWSSharedCredentialsFile, credPath, env.Home), conf.SrcProfile)}))
+	return session.Must(session.NewSession(&aws.Config{Credentials: stscreds.NewCredentials(sess, conf.RoleARN), Region: &conf.Region}))
 }
 
 func awsFilePath(filePath, defaultPath, home string) string {
