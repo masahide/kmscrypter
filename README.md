@@ -9,7 +9,8 @@ Command wrapper for encryption and decryption using aws kms.
 
 ## Description
 
-kmscrypter is use aws kms to encrypt and decrypt it and set it to environment variable.
+kmscrypter decrypts environment variables with keys that end in `_KMS` and assigns them to a key of the same name with the KMS suffix removed.
+It also encrypts the value of an environment variable that has a key ending with `_PLAINTEXT` and assigns it to a key of the same name that replaced the suffix with `_KMS`.
 
 ## Installation
 
