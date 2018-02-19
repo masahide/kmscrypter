@@ -47,4 +47,12 @@ brew install kmscrypter
 
 ## Usage
 
+requires IAM access to Amazon's KMS service. 
+It is necessary to exploit the role of EC2 IAM or to set access credentials in environment settings.
+(or [~/.aws/credentials and ~/.aws/config File](https://docs.aws.amazon.com/cli/latest/userguide/cli-config-files.html)
 
+```
+AWS_ACCESS_KEY_ID=<your_key_id>
+AWS_SECRET_ACCESS_KEY=<your_secret_key>
+AWS_REGION=<ap-northeast-1 etc...>
+```
