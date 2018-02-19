@@ -50,7 +50,7 @@ ci: build test lint
 
 # Build a beta version of kmscrypter
 build:
-	go build -o kmscrypter cmd/kmscrypter/main.go
+	go build -o dist/kmscrypter cmd/kmscrypter/main.go
 .PHONY: build
 
 ## Generate the static documentation
