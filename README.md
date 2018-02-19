@@ -1,6 +1,6 @@
 # kmscrypter
-AWS assume role credential wrapper.
 
+Command wrapper for encryption and decryption using aws kms.
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/masahide/kmscrypter)](https://goreportcard.com/report/github.com/masahide/kmscrypter)
 [![Build Status](https://travis-ci.org/masahide/kmscrypter.svg?branch=master)](https://travis-ci.org/masahide/kmscrypter)
@@ -18,13 +18,13 @@ kmscrypter is use aws kms to encrypt and decrypt it and set it to environment va
 For RHEL/CentOS:
 
 ```bash
-sudo yum install https://github.com/masahide/kmscrypter/releases/download/v0.1.x/kmscrypter_amd64.rpm
+sudo yum install https://github.com/masahide/kmscrypter/releases/download/v0.1.0/kmscrypter_amd64.rpm
 ```
 
 For Ubuntu/Debian:
 
 ```bash
-wget -qO /tmp/kmscrypter_amd64.deb https://github.com/masahide/kmscrypter/releases/download/v0.1.x/kmscrypter_amd64.deb && sudo dpkg -i /tmp/kmscrypter_amd64.deb
+wget -qO /tmp/kmscrypter_amd64.deb https://github.com/masahide/kmscrypter/releases/download/v0.1.0/kmscrypter_amd64.deb && sudo dpkg -i /tmp/kmscrypter_amd64.deb
 ```
 
 ### macOS
