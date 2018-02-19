@@ -54,5 +54,42 @@ It is necessary to exploit the role of EC2 IAM or to set access credentials in e
 ```
 AWS_ACCESS_KEY_ID=<your_key_id>
 AWS_SECRET_ACCESS_KEY=<your_secret_key>
-AWS_REGION=<ap-northeast-1 etc...>
+AWS_REGION=<ap-northeast-1(etc..)>
 ```
+
+
+### Use case 1:
+
+Handle secret variables with ansible.
+
+secret.json:
+```json
+{
+  "user1": "pass1111",
+  "user2": "pass12345"
+}
+```
+
+encrypt:
+```
+SECRET_JSON_PLAINTEXT=$(cat secret.json) dfadsdfgfKMS_CMK=arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab kmscrypter >
+```
+
+
+playbook:
+```yaml
+- hosts: all
+   vars:
+     secret: "{{ lookup('env', 'SECRET_JSON') | from_json }}"
+   tasks:
+   - debug: msg = {{secret [%s | format (item)]}}
+     with_items:
+       - "user1"
+       - "user2"
+```
+
+running ansible-playbook:
+```bash
+SECRET_JSON_KMS = "hZGLgZHLGcL 2 Tq 1 k 5 G ..." kmscrypter | ansible-playbook site.yml
+`` `
+
