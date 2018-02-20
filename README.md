@@ -101,6 +101,11 @@ From `ansible-playbook` you can reference it using` lookup` filter etc.
 #### running ansible-playbook:
 When wrapping and running `ansible-playbook` as follows, the value of` SECRET_JSON_KMS` is decrypted and set as `SECRET_JSON` and passed to` ansible-playbook`.
 ```bash
-$ export SECRET_JSON_KMS="hZGLgZvuacL2TiyoCQ1HLGq1k5GJgYP......" kmscrypter | ansible-playbook site.yml
+$ SECRET_JSON_KMS="hZGLgZvuacL2TiyoCQ1HLGq1k5GJgYP..." kmscrypter ansible-playbook site.yml
+```
+or
+```bash
+$ export SECRET_JSON_KMS="hZGLgZvuacL2TiyoCQ1HLGq1k5GJgYP..."
+$ kmscrypter ansible-playbook site.yml
 ```
 
