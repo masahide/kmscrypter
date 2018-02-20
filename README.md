@@ -68,6 +68,25 @@ kmscrypter operates as follows.
 3. Set the decrypted value to the key name from which the `_KMS` suffix was removed from the original key
 4. Execute `some_command` with` args`.
 
+### As a decryption environment variable exporter
+
+When kmscrypter is executed without arguments, kmscrypter outputs environment variable shell script `exprot` decrypted data
+
+`` `bash
+$ export PASSWD1_KMS = "hZGLgZvuacL2TiyoCQ1HLGq1k5GJgYP ......"
+$ export PASSWD2_KMS = "2TiyoCQ15acLGJgYPHLGqhZGLgZvu1k ......"
+$ kmscrypter
+export PASSWD 1 = "XXXXXXXXXXXXXXXX"
+export PASSWD 2 = "XXXXXXXXXXXXXXXX"
+`` `
+
+You can set decoded data environment variable by eval.
+
+`` `bash
+$ eval "$ (kmscrypter)"
+`` `
+
+
 ### Creating encrypted data
 
 kmscrypter encrypts the value of the `_PLAINTEXT` suffix when the environment variable `KMS_CMK` is set.
