@@ -62,7 +62,7 @@ AWS_REGION=<ap-northeast-1(etc..)>
 
 Handle secret variables with ansible.
 
-secret.json:
+#### secret.json:
 ```json
 {
   "user1": "pass1111",
@@ -70,7 +70,7 @@ secret.json:
 }
 ```
 
-encrypt json:
+#### encrypt json:
 * Set the master key ARN to `KMS_CMK`
 * Set the json string to the key with the `_PLAINTEXT 'suffix
 ```bash
@@ -81,9 +81,9 @@ output:
 export SECRET_JSON_KMS="hZGLgZvuacL2TiyoCQ1HLGq1k5GJgYP......"
 ```
 
-From `ansible-playbook` you can reference it using` lookup` filter etc.
 
-playbook example:
+#### playbook example:
+From `ansible-playbook` you can reference it using` lookup` filter etc.
 ```yaml
 - hosts: all
    vars:
@@ -95,10 +95,10 @@ playbook example:
        - "user2"
 ```
 
-When wrapping and running `ansible-playbook` as follows, the value of` SECRET_JSON_KMS` is decrypted and set as `SECRET_JSON` and passed to` ansible-playbook`.
 
-running ansible-playbook:
+#### running ansible-playbook:
+When wrapping and running `ansible-playbook` as follows, the value of` SECRET_JSON_KMS` is decrypted and set as `SECRET_JSON` and passed to` ansible-playbook`.
 ```bash
-export SECRET_JSON_KMS="hZGLgZvuacL2TiyoCQ1HLGq1k5GJgYP......" kmscrypter | ansible-playbook site.yml
+$ export SECRET_JSON_KMS="hZGLgZvuacL2TiyoCQ1HLGq1k5GJgYP......" kmscrypter | ansible-playbook site.yml
 ```
 
