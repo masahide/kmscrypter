@@ -70,14 +70,20 @@ secret.json:
 }
 ```
 
-encrypt:
+encrypt json:
+* Set the master key ARN to `KMS_CMK`
+* Set the json string to the key with the `_PLAINTEXT 'suffix
 ```bash
 $ SECRET_JSON_PLAINTEXT=$(cat secret.json) KMS_CMK=arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab kmscrypter
+```
+output:
+```bash
 export SECRET_JSON_KMS="hZGLgZvuacL2TiyoCQ1HLGq1k5GJgYP......"
 ```
 
+From `ansible-playbook` you can reference it using` lookup` filter etc.
 
-playbook:
+playbook example:
 ```yaml
 - hosts: all
    vars:
@@ -88,6 +94,8 @@ playbook:
        - "user1"
        - "user2"
 ```
+
+When wrapping and running `ansible-playbook` as follows, the value of` SECRET_JSON_KMS` is decrypted and set as `SECRET_JSON` and passed to` ansible-playbook`.
 
 running ansible-playbook:
 ```bash
