@@ -74,7 +74,9 @@ Handle secret variables with ansible.
 * Set the master key ARN to `KMS_CMK`
 * Set the json string to the key with the `_PLAINTEXT 'suffix
 ```bash
-$ SECRET_JSON_PLAINTEXT=$(cat secret.json) KMS_CMK=arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab kmscrypter
+$ SECRET_JSON_PLAINTEXT=$(cat secret.json) \
+KMS_CMK=arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab \
+kmscrypter
 ```
 output:
 ```bash
