@@ -100,5 +100,5 @@ When wrapping and running `ansible-playbook` as follows, the value of` SECRET_JS
 running ansible-playbook:
 ```bash
 export SECRET_JSON_KMS="hZGLgZvuacL2TiyoCQ1HLGq1k5GJgYP......" kmscrypter | ansible-playbook site.yml
-`` `
+```
 
