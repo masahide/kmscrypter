@@ -160,7 +160,7 @@ $ export SECRET_JSON_KMS="hZGLgZvuacL2TiyoCQ1HLGq1k5GJgYP..."
 $ kmscrypter ansible-playbook site.yml
 ```
 or 
-use save s3 encrypt data.
+Use encrypted data saved in s3.
 ```bash
 $ SECRET_JSON_KMS="$(aws s3 cp s3://bucket/secret.kms -)" kmscrypter ansible-playbook site.yml
 ```
