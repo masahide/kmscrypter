@@ -1,6 +1,6 @@
 # kmscrypter
 
-Command wrapper for encryption and decryption using aws kms.
+Command wrapper for encryption and decryption using [aws kms](https://aws.amazon.com/kms/).
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/masahide/kmscrypter)](https://goreportcard.com/report/github.com/masahide/kmscrypter)
 [![Build Status](https://travis-ci.org/masahide/kmscrypter.svg?branch=master)](https://travis-ci.org/masahide/kmscrypter)
