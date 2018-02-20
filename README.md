@@ -98,8 +98,18 @@ It operates as follows.
 4. Set the encrypted data to the key name obtained by replacing the encrypted value with the original key and the `_PLAINTEXT` suffix by` _KMS`
 5. Output the encrypted value to standard output as `export <Key name> _KMS =" encrypted data ... "`
 
+example:
+```bash
+$ MYSQL_ROOT_PASSWD_PLAINTEXT="passwordxxx" \
+KMS_CMK=arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab \
+kmscrypter
 
-### Use case 1:
+## Encrypted environment variable is output..
+MYSQL_ROOT_PASSWD_KMS="5acLGJyoCQ1PHLGqhZGvgY2Tiu1kLgZ......"
+```
+
+
+## Use case 1:
 
 Handle secret variables with ansible.
 
