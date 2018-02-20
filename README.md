@@ -72,19 +72,19 @@ kmscrypter operates as follows.
 
 When kmscrypter is executed without arguments, kmscrypter outputs environment variable shell script `exprot` decrypted data
 
-`` `bash
+```bash
 $ export PASSWD1_KMS = "hZGLgZvuacL2TiyoCQ1HLGq1k5GJgYP ......"
 $ export PASSWD2_KMS = "2TiyoCQ15acLGJgYPHLGqhZGLgZvu1k ......"
 $ kmscrypter
 export PASSWD 1 = "XXXXXXXXXXXXXXXX"
 export PASSWD 2 = "XXXXXXXXXXXXXXXX"
-`` `
+```
 
 You can set decoded data environment variable by eval.
 
-`` `bash
+```bash
 $ eval "$ (kmscrypter)"
-`` `
+```
 
 
 ### Creating encrypted data
