@@ -51,7 +51,7 @@ requires IAM access to Amazon's KMS service.
 It is necessary to exploit the role of EC2 IAM or to set access credentials in environment settings.
 (or [~/.aws/credentials and ~/.aws/config File](https://docs.aws.amazon.com/cli/latest/userguide/cli-config-files.html))
 
-```
+```bash
 AWS_ACCESS_KEY_ID=<your_key_id>
 AWS_SECRET_ACCESS_KEY=<your_secret_key>
 AWS_REGION=<ap-northeast-1(etc..)>
@@ -71,8 +71,9 @@ secret.json:
 ```
 
 encrypt:
-```
-SECRET_JSON_PLAINTEXT=$(cat secret.json) dfadsdfgfKMS_CMK=arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab kmscrypter >
+```bash
+$ SECRET_JSON_PLAINTEXT=$(cat secret.json) KMS_CMK=arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab kmscrypter
+export SECRET_JSON_KMS="hZGLgZvuacL2TiyoCQ1HLGq1k5GJgYP......"
 ```
 
 
@@ -90,6 +91,6 @@ playbook:
 
 running ansible-playbook:
 ```bash
-SECRET_JSON_KMS = "hZGLgZHLGcL 2 Tq 1 k 5 G ..." kmscrypter | ansible-playbook site.yml
+export SECRET_JSON_KMS="hZGLgZvuacL2TiyoCQ1HLGq1k5GJgYP......" kmscrypter | ansible-playbook site.yml
 `` `
 
