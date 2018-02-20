@@ -57,6 +57,17 @@ AWS_SECRET_ACCESS_KEY=<your_secret_key>
 AWS_REGION=<ap-northeast-1(etc..)>
 ```
 
+### As a decryption command wrapper
+```
+$  kmscrypter some_command [arg1 arg2...]
+```
+kmscrypter operates as follows.
+
+1. Find the key name of the environment variable with `_KMS` suffix
+2. Execute KMS Decrypt API using aws credentials to decrypt the value
+3. Set the decrypted value to the key name from which the `_KMS` suffix was removed from the original key
+4. Execute `some_command` with` args`.
+
 
 ### Use case 1:
 
