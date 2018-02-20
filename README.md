@@ -68,6 +68,17 @@ kmscrypter operates as follows.
 3. Set the decrypted value to the key name from which the `_KMS` suffix was removed from the original key
 4. Execute `some_command` with` args`.
 
+### Creating encrypted data
+
+kmscrypter encrypts the value of the `_PLAINTEXT` suffix when the environment variable `KMS_CMK` is set.
+It operates as follows.
+
+1. Use the value of the environment variable `KMS_CMK` as [KMS Customer Master keyId (ARN)] (https://docs.aws.amazon.com/kms/latest/developerguide/programming-keys.html#creating-keys) To
+2. Find the key name of the environment variable with `_PLAINTEXT` suffix
+3. Encrypt using the KMS GenarateDataKey API using aws credentials and `KMS_CMK`
+4. Set the encrypted data to the key name obtained by replacing the encrypted value with the original key and the `_PLAINTEXT` suffix by` _KMS`
+5. Output the encrypted value to standard output as `export <Key name> _KMS =" encrypted data ... "`
+
 
 ### Use case 1:
 
